@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var speed : float
 
 @onready var animation_player := $AnimationPlayer
+@onready var character_sprite := $CharacterSprite
 
 enum State {IDLE,WALK}
 
@@ -14,6 +15,7 @@ func _process(delta: float) -> void:
 	handle_input()
 	handle_movement()
 	handle_animation()
+	flip_sprites()
 	move_and_slide()
 
 func handle_movement():
@@ -31,3 +33,9 @@ func handle_animation() -> void:
 		animation_player.play("idle")
 	elif state == State.WALK:
 		animation_player.play("walk")
+		
+func flip_sprites() -> void:
+	if velocity.x > 0:
+		character_sprite.flip_h = false
+	elif velocity.x <0:
+			character_sprite.flip_h = true	
