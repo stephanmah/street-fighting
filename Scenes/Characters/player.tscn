@@ -22,6 +22,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../DamageEmitter:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_40svl"]
 resource_name = "idle"
@@ -70,6 +82,18 @@ tracks/1/keys = {
 "args": [],
 "method": &"on_action_complete"
 }]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../DamageEmitter:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_gy20a"]
@@ -128,7 +152,6 @@ vframes = 10
 [node name="DamageEmitter" parent="." index="4"]
 position = Vector2(-1, 0)
 collision_mask = 96
-monitoring = true
 
 [node name="CollisionShape2D" parent="DamageEmitter" index="0"]
 position = Vector2(12, -12)
