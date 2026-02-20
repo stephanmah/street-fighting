@@ -6,10 +6,14 @@ extends CharacterBody2D
 
 @onready var animation_player := $AnimationPlayer
 @onready var character_sprite := $CharacterSprite
+@onready var damage_emitter := $DamageEmitter
 
 enum State {IDLE,WALK,ATTACK}
 
 var state = State.IDLE
+
+func _ready() -> void:
+	damage_emitter.area_entered.connect(on_emit_damage.bind())
 
 func _process(delta: float) -> void:
 	handle_input()
@@ -55,3 +59,6 @@ func can_attack() -> bool:
 
 func on_action_complete() -> void:
 	state = State.IDLE
+
+func on_emit_damage(damage_receiver:Area2D) -> void:
+	print(damage_receiver)
