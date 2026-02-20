@@ -60,5 +60,6 @@ func can_attack() -> bool:
 func on_action_complete() -> void:
 	state = State.IDLE
 
-func on_emit_damage(damage_receiver:Area2D) -> void:
+func on_emit_damage(damage_receiver:DamageReceiver) -> void:
+	damage_receiver.damage_received.emit(damage)
 	print(damage_receiver)

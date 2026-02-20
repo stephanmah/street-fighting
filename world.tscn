@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cn4ogm5625gqr" path="res://Scenes/Stage/stage.tscn" id="1_f3sb7"]
 [ext_resource type="Script" uid="uid://clf33cuvn6vg7" path="res://world.gd" id="1_tlwt5"]
 [ext_resource type="PackedScene" uid="uid://bp1xp3vgmv3ac" path="res://Scenes/Characters/player.tscn" id="2_fj7yv"]
-[ext_resource type="PackedScene" uid="uid://btcc4ub3070e" path="res://barrel.tscn" id="4_aqk2v"]
+[ext_resource type="PackedScene" uid="uid://btcc4ub3070e" path="res://Scenes/props/barrel.tscn" id="4_aqk2v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlwt5"]
 size = Vector2(6, 64)

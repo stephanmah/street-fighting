@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://btcc4ub3070e"]
+[gd_scene load_steps=6 format=3 uid="uid://btcc4ub3070e"]
 
+[ext_resource type="Script" uid="uid://cl3tmgc5ku8vp" path="res://Scenes/props/barrel.gd" id="1_8dew2"]
 [ext_resource type="Texture2D" uid="uid://btqwimral6aaf" path="res://assets/art/props/barrel.png" id="1_n8un1"]
 [ext_resource type="PackedScene" uid="uid://chukekw155tof" path="res://Colliders/damage_receiver.tscn" id="2_a12vh"]
 
@@ -13,6 +14,7 @@ size = Vector2(10, 9.5)
 [node name="Barrel" type="StaticBody2D"]
 collision_layer = 8
 collision_mask = 0
+script = ExtResource("1_8dew2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_n8un1")
