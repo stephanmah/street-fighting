@@ -2,14 +2,17 @@ extends CharacterBody2D
 
 @export var health : int
 @export var damage : int
+@export var jump_intensity : float
 @export var speed : float
 
 @onready var animation_player := $AnimationPlayer
 @onready var character_sprite := $CharacterSprite
 @onready var damage_emitter := $DamageEmitter
 
-enum State {IDLE,WALK,ATTACK}
+enum State {IDLE,WALK,ATTACK,TAKEOFF,JUMP,LAND}
 
+var height := 0.0
+var height_speed := 0.0
 var state = State.IDLE
 
 func _ready() -> void:
@@ -36,6 +39,8 @@ func handle_input() -> void:
 	velocity = direction * speed
 	if can_attack() and Input.is_action_just_pressed("attack"):
 		state = State.ATTACK
+	if can_jump and Input.is_action_just_pressed("jump"):
+		state = state.TAKEOFF
 	
 func handle_animation() -> void:
 	if state == State.IDLE:
@@ -59,9 +64,18 @@ func can_move() -> bool:
 
 func can_attack() -> bool:
 	return state == State.IDLE or state == State.WALK
-		
+
+func can_jump() -> bool:
+	return state == State.IDLE or  state == State.WALK
 
 func on_action_complete() -> void:
+	state = State.IDLE
+
+func on_takeoff_complete() -> void:
+	state = State.JUMP
+	height_speed = jump_intensity
+	
+func on_land_complete() -> void:
 	state = State.IDLE
 
 func on_emit_damage(damage_receiver:DamageReceiver) -> void:
